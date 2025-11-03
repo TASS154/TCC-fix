@@ -1,0 +1,102 @@
+ion-content {
+  display:flex; flex-direction:column; height:100vh; overflow:hidden;
+}
+
+.video-container {
+  flex:1; display:flex; justify-content:center; align-items:center;
+  background:black; overflow:hidden; position:relative;
+}
+.video-container.recording {border:4px solid red; animation:blink-border 1s infinite;}
+@keyframes blink-border {50%{border-color:rgba(255,0,0,.3);}}
+
+.camera-placeholder {
+  position:absolute; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; text-align:center; z-index:10;
+}
+.placeholder-icon {width:64px; height:64px; filter:invert(48%) sepia(13%) saturate(320%) hue-rotate(180deg) brightness(95%) contrast(80%);}
+.placeholder-text {color:#667786; font-size:18px; font-weight:500; margin-top:16px; text-shadow:0 2px 4px rgba(0,0,0,.5);}
+
+#video {display:none;}
+#canvas {width:100%; height:100%; object-fit:contain;}
+#canvas.black-and-white {filter:grayscale(100%);}
+.ion-select {max-width:200px;}
+
+@media (max-width:600px){.button-container{flex-direction:column; align-items:center;}}
+
+ion-button{color:white;}
+ion-button[color="warning"]{--color:white;}
+
+.settings-button,.iniciarar{display:block; margin:16px auto; text-align:center;}
+.iniciarar{width:180px; height:80px;}
+
+.recording-controls {
+  display:flex; flex-direction:column; align-items:center;
+  justify-content:center; gap:10px; margin:10px 0;
+}
+.recording-timer {color:black; font-size:18px; font-weight:bold; margin-bottom:10px; text-align:center;}
+.recording-timer.blinking{animation:blink 1s infinite;}
+@keyframes blink{50%{opacity:.3;}}
+
+ion-modal#preview-modal,
+ion-modal#gallery-modal,
+ion-modal#settings-modal,
+ion-modal#video-preview-modal {
+  --height:80%; --width:90%; --border-radius:8px; transition:opacity .3s ease;
+}
+ion-modal#preview-modal img{max-width:100%; max-height:100%; object-fit:contain;}
+ion-modal#gallery-modal ion-thumbnail{width:100px; height:100px; position:relative;}
+ion-modal#gallery-modal ion-thumbnail img{object-fit:cover;}
+ion-modal#gallery-modal .content-type-icon{
+  position:absolute; bottom:5px; right:5px;
+  background:rgba(0,0,0,.7); border-radius:4px; padding:3px; z-index:10;
+}
+ion-modal#gallery-modal .content-type-icon img{width:20px; height:20px;}
+ion-modal.transparent{--backdrop-opacity:.1; opacity:.5;}
+
+.modal-close-button{--color:var(--ion-color-primary,#3880ff); opacity:1; z-index:10; font-weight:500; padding:0 16px;}
+
+/* Agrupamento dos toasts */
+ion-toast[class*="toast-"]{
+  --border-radius:8px; --box-shadow:0 3px 6px rgba(0,0,0,.2);
+  font-weight:500; text-align:center; animation:slideInOut 2.6s ease-in-out;
+}
+ion-toast[class*="toast-"]::part(message),
+ion-toast[class*="toast-"]::part(button){color:white;}
+ion-toast.toast-photo-taken{--background:var(--ion-color-warning);}
+ion-toast.toast-photo-deleted,
+ion-toast.toast-error,
+ion-toast.toast-video-deleted{--background:var(--ion-color-danger);}
+ion-toast.toast-photo-saved,
+ion-toast.toast-photo-copied,
+ion-toast.toast-video-recorded,
+ion-toast.toast-video-downloaded,
+ion-toast.toast-video-copied{--background:var(--ion-color-success);}
+ion-toast.toast-video-recorded{cursor:pointer;}
+
+@keyframes slideInOut {
+  0%{transform:translateY(100%);opacity:0;}
+  10%,90%{transform:translateY(0);opacity:1;}
+  100%{transform:translateY(100%);opacity:0;}
+}
+
+.photo-timestamp,.photo-size {
+  color:#808080; opacity:.5; font-size:12px; margin-left:8px; align-self:center;
+}
+
+.slider {
+  width:60px; height:30px; background:lightgray; border-radius:20px;
+  overflow:hidden; display:flex; align-items:center; border:4px solid transparent;
+  transition:.3s; box-shadow:0 0 10px 0 rgba(0,0,0,.25) inset; cursor:pointer;
+}
+.slider:hover{opacity:.8;}
+.slider::before{
+  content:''; display:block; width:100%; height:100%; background:#fff;
+  transform:translateX(-30px); border-radius:20px; transition:.3s;
+  box-shadow:0 0 10px 3px rgba(0,0,0,.25);
+}
+.checkbox:checked~.slider{background:#2196F3;}
+.checkbox:checked~.slider::before{transform:translateX(30px);}
+.checkbox:active~.slider::before{transform:translate(0);}
+
+ion-item .switch{display:flex; align-items:center; margin-left:auto;}
+ion-item .slider{margin:0 8px;}

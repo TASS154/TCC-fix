@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>AR com WebXR</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="webxr-container">
+    <canvas #webglCanvas></canvas>
+    <button class="ar-button" (click)="startAR()" *ngIf="!isARActive">
+      Iniciar AR
+    </button>
+  </div>
+</ion-content>
