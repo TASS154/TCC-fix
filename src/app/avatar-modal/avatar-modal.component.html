@@ -1,0 +1,46 @@
+<ion-header>
+
+  <ion-toolbar class="title">
+    <ion-title>Choose Your Avatar</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Cancel</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item-divider>
+          <ion-label>Default</ion-label>
+        </ion-item-divider>
+        <div class="avatar-grid">
+          <div class="avatar-item" *ngFor="let avatar of avatars.default" (click)="selectAvatar(avatar)" [class.selected]="selectedAvatar?.url === avatar.url">
+            <ion-thumbnail>
+              <img [src]="avatar.url" alt="{{ avatar.name }}" />
+            </ion-thumbnail>
+            <ion-label>{{ avatar.name }}</ion-label>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item-divider>
+          <ion-label>Anime</ion-label>
+        </ion-item-divider>
+        <div class="avatar-grid">
+          <div class="avatar-item" *ngFor="let avatar of avatars.anime" (click)="selectAvatar(avatar)" [class.selected]="selectedAvatar?.url === avatar.url">
+            <ion-thumbnail>
+              <img [src]="avatar.url" alt="{{ avatar.name }}" />
+            </ion-thumbnail>
+            <ion-label>{{ avatar.name }}</ion-label>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-button expand="block" (click)="confirm()" [disabled]="!selectedAvatar">Confirm</ion-button>
+</ion-content>
+
+

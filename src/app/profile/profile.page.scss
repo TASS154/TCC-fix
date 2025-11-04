@@ -1,0 +1,97 @@
+.navbar, ion-toolbar {
+
+	align-items: center;
+	text-align: center;
+	--background: #9b541a;
+}
+.base {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-height: 100%;
+	padding: 20px;
+	background: linear-gradient(180deg, #f5ae71 0%, #f5ae71 100%);
+}
+.home {
+	width: 32px;
+	height: 32px;
+	margin-right: 10px;
+}
+.avatar {
+	margin: 20px 0;
+	overflow: hidden;
+	border-radius: 50%;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.person-avatar {
+	width: 128px;
+	height: 128px;
+	object-fit: cover;
+	border-radius: 50%;
+	transition: transform 0.3s ease;
+	&:hover {
+		transform: scale(1.05);
+	}
+}
+.person-apelido {
+	font-size: 1.5rem;
+	font-weight: 600;
+	color: #1a1a1a;
+	margin: 10px 0;
+}
+.person-name {
+	font-size: 1.2rem;
+	font-weight: 400;
+	color: #495057;
+	margin: 5px 0;
+}
+.person-frase {
+	font-size: 1rem;
+	font-style: italic;
+	color: #6c757d;
+	margin: 5px 0;
+}
+.person-code {
+	font-size: 0.9rem;
+	font-weight: 500;
+	color: #343a40;
+	margin: 5px 0;
+}
+.person-friends {
+	font-size: 0.9rem;
+	font-weight: 500;
+	color: #343a40;
+	margin: 5px 0;
+}
+.person-classmates {
+	font-size: 0.9rem;
+	font-weight: 500;
+	color: #343a40;
+	margin: 5px 0;
+}
+@media (max-width: 768px) {
+	.person-avatar {
+		width: 100px;
+		height: 100px;
+	}
+	.person-apelido {
+		font-size: 1.2rem;
+	}
+	.person-name {
+		font-size: 1rem;
+	}
+	.person-frase {
+		font-size: 0.9rem;
+	}
+	.person-code {
+		font-size: 0.8rem;
+	}
+	.person-friends {
+		font-size: 0.8rem;
+	}
+	.person-classmates {
+		font-size: 0.8rem;
+	}
+}
+
+

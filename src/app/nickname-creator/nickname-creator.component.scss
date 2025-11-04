@@ -1,0 +1,52 @@
+ion-title, ion-toolbar {
+
+	background-color: #9b541a ;
+	text-align: center;
+--background: #9b541a;
+}
+.nickname-creator {
+	color: black;
+	margin-left: 20px;
+}
+ion-content {
+	--background: #f5ae71;
+}
+.nickname-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 20px;
+	background-color: #f5ae71;
+}
+.close{
+	color: black;
+}
+.name-section,
+.surname-section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: #f0f0;
+	margin: 20px 0;
+}
+.selected-name,
+.selected-surname {
+	font-size: 1.5rem;
+	font-weight: 600;
+	color: black;
+	margin: 10px 0;
+}
+ion-button {
+	--border-radius: 8px;
+	margin: 5px 0;
+	color: #9b541a;
+}
+ion-icon {
+	font-size: 24px;
+}
+.salvar, .random {
+	--background: #9b541a;
+	color: black;
+}
+
+
